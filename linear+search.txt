@@ -1,0 +1,52 @@
+#include <iostream>
+#define length 5
+using namespace std;
+void LINEAR_SEARCH(int array[],int searched_value)
+{
+    int position=-1;
+    for(int counter=0;counter<length;counter++)
+    {
+        if(array[counter]==searched_value)
+        {
+            position=counter;
+            cout<<"The Searched Number "<<searched_value<<" Found In Index : "<<position<<endl;
+            //break;//{If the searched value is in multiple indexes and only the first index number holding the value is shown}
+        }
+    }
+    if(position==-1)
+    {
+        cout<<"The Value "<<searched_value<<" Is Not Found!"<<endl;
+    }
+}
+void ARRAY_INPUT(int array[])
+{
+    cout<<"Enter "<<length<<" numbers: "<<endl;
+    for(int i=0;i<length;i++)
+    {
+        cin>>array[i];
+    }
+}
+void ARRAY_OUTPUT(int array[])
+{
+    cout<<"The Numbers Are: ";
+    for(int i=0;i<length;i++)
+    {
+        cout<<array[i]<<" ";
+    }
+}
+int SEARCHED_VALUE(int value)
+{
+    cout<<endl;
+    cout<<"Enter a value to search: ";
+    cin>>value;
+    return value;
+}
+int main()
+{
+    int array[length];
+    ARRAY_INPUT(array);
+    ARRAY_OUTPUT(array);
+    int value=SEARCHED_VALUE(value);
+    LINEAR_SEARCH(array,value);
+    return 0;
+}

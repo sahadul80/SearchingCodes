@@ -1,0 +1,37 @@
+#include <iostream>
+#define size 5
+using namespace std;
+void passed(int marks[])
+{
+    int position=-1;
+    for(int counter=0;counter<size;counter++)
+    {
+        if(marks[counter]>=50&&marks[counter]<=100)
+        {
+            position=counter;
+            cout<<"Student No "<<position+1<<" has PASSED with "<<marks[counter]<<" Marks, In Index : "<<position<<endl;
+            //break;//{If the searched value is in multiple indexes and only the first index number holding the value is shown}
+        }
+        else if(marks[counter]>=100)
+        {
+            cout<<"Invalid input for Student No "<<counter+1<<"! A student can not have more than 100 marks."<<endl;
+        }
+    }
+    if(position==-1)
+    {
+        cout<<"Everyone Has Failed!"<<endl;
+    }
+}
+int main()
+{
+    cout<<"Enter Obtained marks: "<<endl;
+    cout<<endl;
+    int marks[size];
+    for(int counter=0;counter<size;counter++)
+    {
+        cout<<"Enter Marks of Student No "<<counter+1<<" : ";
+        cin>>marks[counter];
+    }
+    passed(marks);
+    return 0;
+}

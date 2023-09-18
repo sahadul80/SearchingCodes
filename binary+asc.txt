@@ -1,0 +1,82 @@
+#include <iostream>
+#define length 5
+using namespace std;
+void BUBBLE_SORT_ASCENDING(int array[])
+{
+    for(int i=0;i<length;i++)
+    {
+        for(int j=0;j<(length-i-1);j++)
+        {
+            if(array[j]>array[j+1])
+            {
+                int temp=array[j];
+                array[j]=array[j+1];
+                array[j+1]=temp;
+            }
+        }
+    }
+}
+void BINARY_SEARCH_ASCENDING(int array[],int value)
+{
+    int first_index=0,last_index=length-1;
+    int index=-1;
+    while(first_index<=last_index)
+    {
+        int mid_index=first_index+(last_index-first_index)/2;
+        if (array[mid_index]==value)
+    	{
+                index=mid_index;
+                break;
+        }
+        else if(value>array[mid_index])
+            first_index=mid_index+1;
+        else
+            last_index=mid_index-1;
+
+    }
+    if(index!=-1)
+    {
+        cout<<"Value found in index: "<<index<<endl;
+    }
+    else
+    {
+        cout<<"Value Not Found!"<<endl;
+    }
+}
+void ARRAY_INPUT(int array[])
+{
+    cout<<"Enter "<<length<<" numbers: "<<endl;
+    for(int i=0;i<length;i++)
+    {
+        cin>>array[i];
+    }
+}
+void ARRAY_OUTPUT(int array[])
+{
+    cout<<"The Numbers Are: ";
+    for(int i=0;i<length;i++)
+    {
+        cout<<array[i]<<" ";
+    }
+}
+int SEARCHED_VALUE(int value)
+{
+    cout<<endl;
+    cout<<"Enter a value to search: ";
+    cin>>value;
+    return value;
+}
+
+int main ()
+{
+    int numbers[length];
+    ARRAY_INPUT(numbers);
+    ARRAY_OUTPUT(numbers);
+    cout<<endl;
+    BUBBLE_SORT_ASCENDING(numbers);
+    cout<<"After applying Bubble sort in Ascending order: "<<endl;
+    ARRAY_OUTPUT(numbers);
+    int key=SEARCHED_VALUE(key);
+    BINARY_SEARCH_ASCENDING(numbers,key);
+    return 0;
+}
